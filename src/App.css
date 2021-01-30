@@ -1,0 +1,63 @@
+body {
+  background-color: #121212;
+  color: #fff
+}
+
+.App {
+  width: 700px;
+  margin: 6% auto;
+  padding: 20px;
+  border: 2px solid #008080;
+  border-radius: 30px;
+}
+
+.main {
+  display: flex;
+}
+
+.circle {
+  flex-basis: 60%;
+}
+
+.circle .inner {
+  border: 2px solid #008080;
+  border-radius: 50%;
+  text-align: center;
+  width: 350px;
+  height: 350px
+}
+
+.circle .inner .hour_text {
+  line-height: 300px;
+  color: #ffffffc7;
+}
+
+.buttons {
+  flex-basis: 40%;
+  text-align: right;
+  position: relative;
+  top: 59px;
+}
+
+.buttons>button {
+  width: 150px;
+  padding: 12px;
+  font-weight: bold;
+  background-color: transparent;
+  border: 2px solid #008080ce;
+  color: #ffffffc7;
+  font-size: 1.1em;
+  text-transform: capitalize;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.abled {
+  opacity: 1;
+  pointer-events: pointer;
+}
