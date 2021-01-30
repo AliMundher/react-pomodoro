@@ -16,15 +16,6 @@ function App() {
   var updateH = time.h, updateM = time.m, updateS = time.s, updateMs = time.ms;
   const [played] = useSound("./ding.mp3", { volume: 0.25 });
 
-  // Function Increment Count by One
-  const increment = () => {
-    setTime({ h: 0, m: 0, s: 0, ms: time.ms + 1 })
-  }
-
-  // Function Decrement Count by One
-  const decrement = () => {
-    setTime({ h: 0, m: 0, s: 0, ms: time.ms - 1 })
-  }
 
   // Play Function Count by One
   const play = () => {
@@ -32,7 +23,7 @@ function App() {
     played();
     run();
     setStatus(1)
-    setInterve(setInterval(run, 600));
+    setInterve(setInterval(run, 10));
   };
 
   // Stop Function
@@ -66,6 +57,17 @@ function App() {
     return setTime({ ms: updateMs, s: updateS, m: updateM, h: updateH });
 
   };
+
+  // Function Decrement Count by One
+  const decrement = () => {
+    setTime({ h: updateH, m: updateM, s: updateS, ms: time.ms - 1 })
+  }
+
+  // Function Increment Count by One
+  const increment = () => {
+    setTime({ h: updateH, m: updateM, s: updateS, ms: time.ms + 1 })
+  }
+
 
   return (
 
