@@ -2,6 +2,8 @@
 import './App.css';
 import React, { useState } from 'react';
 import Circle from './components/circle';
+import useSound from 'use-sound';
+
 
 
 function App() {
@@ -9,9 +11,10 @@ function App() {
   const [time, setTime] = useState({ h: 0, m: 0, s: 0, ms: 0 });
   const [clearInterve, setInterve] = useState();
   const [status, setStatus] = useState(0);
+  const [style, noStyle] = useState("disabled");
 
   var updateH = time.h, updateM = time.m, updateS = time.s, updateMs = time.ms;
-
+  const [played] = useSound("./ding.mp3", { volume: 0.25 });
 
   // Function Increment Count by One
   const increment = () => {
@@ -25,6 +28,8 @@ function App() {
 
   // Play Function Count by One
   const play = () => {
+    noStyle("abled");
+    played();
     run();
     setStatus(1)
     setInterve(setInterval(run, 600));
@@ -40,6 +45,8 @@ function App() {
     setTime({ ms: 0, s: 0, m: 0, h: 0 });
 
   }
+
+
 
   // Run Function
   const run = () => {
@@ -67,12 +74,12 @@ function App() {
         <Circle time={time} />
 
         <div className="buttons">
-          <button onClick={increment}>+</button>
+          <button onClick={increment} className={style}>+</button>
           {(status === 0) ?
             <button onClick={play}>play</button> : <button onClick={stope}>stop</button>}
 
-          <button onClick={reset}>reset</button>
-          <button onClick={decrement}>-</button>
+          <button onClick={reset} className={style}>reset</button>
+          <button onClick={decrement} className={style}>-</button>
         </div>
       </div>
     </div>

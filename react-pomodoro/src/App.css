@@ -51,3 +51,13 @@ body {
   margin-bottom: 10px;
   cursor: pointer;
 }
+
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.abled {
+  opacity: 1;
+  pointer-events: pointer;
+}
